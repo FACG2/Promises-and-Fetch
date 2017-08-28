@@ -64,3 +64,9 @@ const url = 'https://api.spotify.com/v1/artists/0OdUWJ0sBjDrqHygGUXeCF'
 fetch(url).then(data=>console.log(data));
 
 ```
+https://cdn-images-1.medium.com/max/1600/1*MBFkZoDs-MQb6ztpjmM_ig.png
+
+The second issue is how .fetch() handles error responses. Logically you would think that if .fetch() gets an error it would enter the .catch() block and return anything there, right? Not necessarily. Here is an example.
+I have declare url variable which is incorrect url. I would expect a 400 error at this point and for my .fetch() to go into the .catch() block but this is what happens instead.
+
+https://cdn-images-1.medium.com/max/1600/1*9ubEzV7mNNDPs2ZLh1k3pQ.png
