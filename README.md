@@ -3,7 +3,34 @@
 
 ## What is a Promise?
 
-What is fetch and how do you use it?
+While synchronous code is easier to follow and debug, async is generally better for performance and flexibility. Why "hold up the show" when you can trigger numerous requests at once and then handle them when each is ready? Promises are becoming a big part of the JavaScript world, with many new APIs being implemented with the promise philosophy. Let's take a look at promises, the API, how it's used!
+
+## Basic Promise Usage
+
+```
+
+var p = new Promise(function(resolve, reject) {
+
+    // Do an async task async task and then...
+
+    if(/* good condition */) {
+        resolve('Success!');
+    }
+    else {
+        reject('Failure!');
+    }
+});
+
+p.then(function() { 
+    /* do something with the result */
+}).catch(function() {
+    /* error :( */
+})
+
+```
+
+
+## What is fetch and how do you use it?
 
 The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network.
 Fetch is a modern concept equivalent to XMLHttpRequest. It offers a lot of the same functionality as the XMLHttpRequest, but is designed to be more extensible and efficient.
@@ -28,3 +55,12 @@ Here we are fetching an image across the network and inserting it into an <img> 
 * When you use ```.fetch()``` there is a two-step process when handing JSON data.
 The first is to make the actual request and then the second is to call the .json() method
 on the response.
+
+
+* Here is a simple example. We set the url has a variable and then pass it to fetch and set the .then() callback to console the data that gets returned from the request.
+
+```
+const url = 'https://api.spotify.com/v1/artists/0OdUWJ0sBjDrqHygGUXeCF'
+fetch(url).then(data=>console.log(data));
+
+```
